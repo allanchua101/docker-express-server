@@ -47,3 +47,9 @@ ENTRYPOINT [ "node", "server.js" ]
 ```sh
 build --tag express-iron-node .
 ```
+
+8. Verify that your docker image was built.
+
+```sh
+docker images --all
+```
