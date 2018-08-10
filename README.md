@@ -38,18 +38,44 @@ npm install
 ```dockerfile
 FROM iron/node
 WORKDIR /app
-ADD . /app
-ENTRYPOINT [ "node", "server.js" ]
+
+# Copy package.json + package-lock.json files
+COPY package*.json ./
+
+# Installing dependencies
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+EXPOSE 3000
+
+ENTRYPOINT [ "npm", "start" ]
 ```
 
-7. Create a docker image by executing the command below on your app folder.
+7. Add the .dockerignore file below
+
+```.dockerignore
+node_modules
+npm-debug.log
+```
+
+8. Create a docker image by executing the command below on your app folder.
 
 ```sh
-build --tag express-iron-node .
+build --tag express/iron-api .
 ```
 
-8. Verify that your docker image was built.
+9. Verify that your docker image was built.
 
 ```sh
 docker images --all
 ```
+
+10. Instantiate a container out of the image you created.
+
+```sh
+docker run -p 3000:3000 --name iron-api express/iron-api
+```
+
+11. Open the following link on a browser. http://localhost:3000/
