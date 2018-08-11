@@ -1,5 +1,5 @@
 # Containerizing an Express server.
-This repository is a step by step guide for setting up and containerizing an express server.
+This repository is a step by step guide for setting up and containerizing an express server. This repository also serves as a complementary guide for this [article](https://pogsdotnet.blogspot.com/2018/08/10-steps-to-setup-and-containerize.html).
 
 # Environment Setup
 
