@@ -63,7 +63,7 @@ npm-debug.log
 8. Create a docker image by executing the command below on your app folder.
 
 ```sh
-build --tag express/iron-api .
+docker build --tag express/iron-api .
 ```
 
 9. Verify that your docker image was built.
